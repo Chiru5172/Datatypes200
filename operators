@@ -1,0 +1,71 @@
+1)	Reassigning variables is possible by var
+2)	 /* var a="Chiru"
+3)	        a="Kavya"
+4)	        a="SAM"
+5)	        console.log(a)
+6)	        console.log(a)
+7)	        document.write(a) */
+8)	
+
+2) Reassigning with let is also accepted
+/* let a=1
+        a=5
+        console.log(a*a)
+        document.write(a*a) */
+
+3) Reassigning with const not accepted (Type Error)
+ /* const a=1
+        a=5
+        a=a+a
+        console.log(a+a) */
+
+Redeclaring with let is not accepted (Syntax Error)
+/* let a=1;
+        let a=5;
+        document.write(a+a)
+        console.log(a+a) */
+
+Redeclaring with const is not accepted
+const a=1;
+        const a=5;
+        document.write(a+a)
+        console.log(a+a)
+
+Block Scope:
+Variables declare with var don’t have block scope
+/* var a="Ram"
+        {
+            var a="Raj"
+            console.log(a)
+        }
+        console.log(a)
+        console.log(a)
+        console.log(a) */
+
+Variables declare with let have block scope
+ let a="Ram"
+        {
+            let a="Raj"
+            console.log(a)
+            document.write(a,"<br>")
+            document.write(a)
+        }
+        console.log(a)
+        console.log(a)
+        console.log(a)
+
+        /* let a=11
+        {
+            let a=5
+            console.log(a+a)
+        }
+        console.log(a+a) */
+
+        var a=11;
+        var a=3;
+        {
+            var a=5
+            a=a+5 //10
+            console.log(a+a) //10
+        }
+        console.log(a+a) //10
