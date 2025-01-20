@@ -45,7 +45,13 @@
             console.log(n,"x",i,"=",n*i)
         } */
 
-        let i=[1,2,3,4,5]
+        const num=[1,2,3,4,5]
+        let sum=0
+        for(let i=0;i<nums.length;i++){
+            sum=sum+num[i]
+        }
+        console.log(i)
+        document.write(i)
         
     </script>
 </body>
