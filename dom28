@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            color: blue;
+        }
+        .b{
+            color: green;
+        }
+        .c{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="b" id="a">Venkat</h1>
+    <h2 class="c" id="b">Mallesh</h2>
+    <h1 class="a" id="c">Ramya</h1>
+    <h1 class="c">Hari</h1>
+    <h2 class="a">Rahul</h2>
+    <h2 class="c">Kavya</h2>
+    <!-- <h1 class="a">Anusha</h1>
+    <h1 class="c">Chiru</h1>
+    <h1 class="b">Ganesh</h1>
+    <h1 class="b">Ravi Teja</h1> -->
+
+    <script>
+        //let x=document.getElementById('a')
+        //console.log(x)
+
+        //let x=document.getElementsByClassName('a')
+        //console.log(x)
+
+        let x=document.getElementsByTagName('h1')
+        //console.log(x)
+
+        for(let i=0;i<x.length;i++){
+            console.log(x[i])
+        }
+    </script>
+
+</body>
+</html>
