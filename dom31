@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="a">
+        <h1>Ravi</h1>
+        <h1 id="r">Ram</h1>
+    </div>
+    <div id="b">
+        <h2>sam</h2>
+        <h2>venkat</h2>
+    </div>
+    <script>
+        let n=document.createElement('h1')
+        n.textContent='chiru'
+
+        let p=document.getElementById('a')
+        let l=document.getElementById('r')
+        p.insertBefore(n,l)
+
+    </script> -->
+
+    <!-- <div id="a">
+        <h1 id="s">Ravi</h1>
+
+        <h1 id="r">Ram</h1>
+    </div>
+    <div id="b">
+        <h2>sam</h2>
+        <h2 id="z">venkat</h2>
+    </div>
+    <script>
+        //to insert chiru before ram
+        let n=document.createElement('h1')
+        n.textContent='Chiru'
+
+        let p=document.getElementById('a')
+        let l=document.getElementById('r')
+        p.insertBefore(n, l)
+
+        //to insert raj before ravi
+        let k=document.createElement('h1')
+        k.textContent='Raj'
+
+        let m=document.getElementById('a')
+        let j=document.getElementById('s')
+        m.insertBefore(k,j)
+
+        //to insert rakesh before rakesh
+        let y=document.createElement('h2')
+        y.textContent='Rakesh'
+
+        let a=document.getElementById('b')
+        let b=document.getElementById('z')
+        a.insertBefore(y,b)
+    </script> -->
+
+    <!-- <div id="a">
+        <h1 id="d">Ravi</h1>
+        <h1>Ram</h1>
+    </div>
+    <div id="b">
+        <h2>sam</h2>
+        <h2>venkat</h2>
+    </div>
+    <script>
+        let p=document.getElementById('a')
+        let a=document.getElementById('d')
+        console.log(a)
+        p.removeChild(a)
+    </script> -->
+
+    <div id="a">
+        <h1 id="d">Ravi</h1>
+        <h1>Ram</h1>
+    </div>
+    <div id="b">
+        <h2>sam</h2>
+        <h2>venkat</h2>
+    </div>
+    <script>
+        //let n=document.createElement('h1')
+        //n.textContent="Malla Reddy University"
+        //let p=document.getElementById('a')
+        //p.replaceChildren(n)
+
+        let n=document.createElement('h1')
+        n.textContent="Malla Reddy University"
+        let p=document.getElementById('a')
+        let k=document.getElementById('d')
+        p.replaceChild(n)
+    </script>
+</body>
+</html>
