@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* let age=parseInt(prompt("Enter age: "))
+        if(age<18){
+            document.write("they cannot vote")
+        }else{
+            let b=prompt("Citizen?")
+            let c=prompt("Passed citizenship test?")
+            if(b=="yes" || c=="yes"){
+                document.write("they can vote")
+            }
+            else if(b=="no" && c=="no"){
+                document.write("they cannot vote")
+            }
+        } */
+
+        /* let spend=parseInt(prompt("Enter amount: "))
+        let p=prompt("Premium member")
+        if(spend>50 && spend<=100){
+            if(p=="yes"){
+                a=(spend*0.1)+(spend*0.05)
+                document.write("total",spend-a)
+            }
+            else if(p=="no"){
+                a=spend*0.1
+                document.write("total",spend-a)
+            }
+        }
+        else if(spend>100){
+            if(p=="yes"){
+                a=(spend*0.2)+(spend*0.05)
+                document.write("total",spend-a)
+            }
+            else if(p=="no"){
+                a=spend*0.2
+                document.write("total",spend-a)
+            }
+        }
+        else{
+            document.write("total: ",spend)
+        } */
+
+        let age=parseInt(prompt("Enter age: "))
+        let a=prompt("VIP?")
+        if(age<18){
+            document.write("they cannot attend")
+        }
+        else{
+        if(a=="yes"){
+            document.write("VIP users can attend all events")
+        }else if(a=="no"){
+            let b=prompt("special invitation")
+            if(b=="yes"){
+                document.write("they can attend")
+            }
+            else if(b=="no"){
+                document.write("they cannot attend")
+            }
+        }}
+            
+    </script>
+</body>
+</html>
