@@ -1,0 +1,122 @@
+import React,{useState} from 'react';
+import Child from '/Child.js';
+const Parent=()=>{
+  const[message,setMessage]=useState("Hello Chiru")
+  const changeMessage=()=>{
+    setMessage('Hello button is clicked')
+  };
+  return(
+    <h1>
+      {message}
+    </h1>
+    <Child changeMessage={changeMessage}/>
+  )
+}
+export default Parent;
+
+
+// import React, { useReducer, useState } from "react";
+// import './App.css';
+
+// // Reducer function to track the number of apples
+// function appleReducer(state, action) { 
+//   switch (action.type) { 
+//     case 'ADD_APPLE': 
+//       return state + 1; 
+//     case 'EAT_APPLE': 
+//       return state > 0 ? state - 1 : 0; 
+//     default: 
+//       return state; 
+//   } 
+// } 
+
+// function App() { 
+//   const [count, dispatch] = useReducer(appleReducer, 1); 
+//   const [apples, setApples] = useState([<img key={0} src={require('./apple.jpg')} alt='apple'/>]); 
+
+//   const handleAddApple = () => {
+//     dispatch({ type: 'ADD_APPLE' });
+//     setApples([...apples, <img key={apples.length} src={require('./apple.jpg')} alt='apple'></img>]);
+//   }
+
+//   const handleEatApple = () => {
+//     if (apples.length > 0) {
+//       dispatch({ type: 'EAT_APPLE' });
+//       setApples(apples.slice(0, -1));
+//     }
+//   }
+
+//   return ( 
+//     <div className="apple"> 
+//       <h1>Apple Counter</h1> 
+//       <p>Number of apples: {count}</p> 
+//       <button onClick={handleAddApple}>Add Apple</button> 
+//       <button onClick={handleEatApple}>Eat Apple</button> 
+//       <div>
+//       {apples}
+//       </div>
+//     </div> 
+//   ); 
+// } 
+
+// export default App;
+
+
+// import React,{useReducer} from 'react';
+// //reducer function to track the number of apples
+// function appleReducer(state=3,action){
+//   switch(action.type){
+//     case 'ADD_APPLE':
+//       return state+1;
+//     case 'EAT_APPLE':
+//       return state-1;
+//     default:
+//       return state;
+//   }
+// }
+// function App(){
+//   const[state,dispatch]=useReducer(appleReducer,3)
+//   return(
+//     <div>
+//       <h1>Apple Counter</h1>
+//       <p>Number of Apples: {state}</p>
+//       <button onClick={()=>dispatch({type:'ADD_APPLE'})}>ADD APPLE</button>
+//       <button onClick={()=>dispatch({type:'EAT_APPLE'})}>EAT APPLE</button>
+//     </div>
+//   )
+// }
+// export default App;
+
+
+
+//App.css
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.apple{
+  text-align: center;
+  padding: auto;
+  background-color: beige;
+}
+
+img{
+  height: 100px;
+  width: 100px;
+  border-radius: 150px;
+}
+button{
+  background-color: bisque;
+  padding: 5px;
+  justify-content: center;
+
+}
+h1{
+  background-color: aqua;
+}
