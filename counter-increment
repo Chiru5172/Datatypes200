@@ -1,0 +1,206 @@
+// import React,{useState,useEffect,useRef,}from 'react';
+// import './App.css';
+// function CounterWithPrev(){
+//   const[count,setCount]=useState(0);
+//   const prevCountRef= useRef();
+//   //create a ref to store the previous value
+//   useEffect(()=>{
+//     prevCountRef.current=count;
+// ////update the ref with current count
+//   } ,[count])    ////This effect returns where 'count' changes
+
+//   return(
+//     <div>
+//       <p>Current Count:{count}</p>
+//       <p>prevCount:{prevCountRef.current}</p>
+
+//       <button onClick={()=>setCount(count+1)}>Increment</button>
+//     </div>
+//   )
+// }
+// export default CounterWithPrev;
+
+
+// import React from 'react';
+// import { ListProvider } from './ListContext';
+// import AddItem from './AddItem';
+// import ItemList from './ItemList';
+// import './App.css';
+
+// const App = () => {
+//   return (
+//     <ListProvider>
+//       <div className='appl'>
+//         <h2>Item Management</h2>
+//         <AddItem />
+//         <ItemList />
+//       </div>
+//     </ListProvider>
+//   );
+// };
+
+// export default App;
+
+//AddItem.js
+import React, { useState, useContext } from 'react';
+import ListContext from './ListContext';
+import './App.css';
+
+const AddItem = () => {
+  const [input, setInput] = useState('');
+  const { dispatch } = useContext(ListContext);
+
+  const addItem = () => {
+    if (input.trim()) {
+      dispatch({ type: 'ADD_ITEM', payload: input });
+      setInput('');
+    }
+  };
+
+  return (
+    <div>
+      <input type="text" value={input} placeholder='Enter any item' onChange={(e) => setInput(e.target.value)} />
+      <div>
+        <br></br>
+        <button onClick={addItem}>Add Item</button>
+      </div>
+    </div>
+  );
+};
+
+export default AddItem;
+
+//ItemList.js
+import React, { useContext, useMemo } from 'react';
+import ListContext from './ListContext';
+
+const ItemList = () => {
+  const { list, dispatch } = useContext(ListContext);
+
+  const memoizedList = useMemo(() => list, [list]);
+
+  return (
+    <div>
+      <h3>Items : {memoizedList.length}</h3>
+      <ul>
+        {memoizedList.map((item) => (
+          <li key={item.id}>
+            {item.text} <button onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item.id })}>Remove</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ItemList;
+
+//ListContext.js
+import React, { createContext, useReducer } from 'react';
+
+const ListContext = createContext();
+
+const listReducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD_ITEM':
+      return [...state, { id: Date.now(), text: action.payload }];
+    case 'REMOVE_ITEM':
+      return state.filter(item => item.id !== action.payload);
+    default:
+      return state;
+  }
+};
+
+export const ListProvider = ({ children }) => {
+  const [list, dispatch] = useReducer(listReducer, []);
+
+  return (
+    <ListContext.Provider value={{ list, dispatch }}>
+      {children}
+    </ListContext.Provider>
+  );
+};
+
+export default ListContext;
+
+//App.css
+.titl{
+  background-color: antiquewhite;
+  text-align: center;
+  
+  gap: 20px;
+  padding: auto;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.appl{
+  text-align: center;
+  padding: auto;
+  background-color: beige;
+  height: 450px;
+  width: 500px;
+}
+
+img{
+  height: 100px;
+  width: 100px;
+  border-radius: 150px;
+}
+button{
+  background-color: bisque;
+  padding: 5px;
+  justify-content: center;
+}
+
+input{
+  height: 30px;
+  width: 200px;
+}
+
+h1{
+  background-color: aqua;
+}
+h2{
+  background-color: aquamarine;
+  
+}
+.app-container {
+  background-color: aqua;
+  display: flex;
+  
+  gap: 20px;
+  padding: 20px;
+}
+
+.profile-card {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  width: 200px;
+}
+
+.profile-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.profile-card h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile-card p {
+  color: #666;
+}
