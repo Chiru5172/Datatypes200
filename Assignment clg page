@@ -1,0 +1,212 @@
+//App.js
+import React from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Courses from "./components/Courses";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <Hero />
+      <About />
+      <Courses />
+      <Contact />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+
+
+//Header.js
+import React, { useState } from "react";
+import "../styles/main.css";
+
+function Header() {
+  const [active, setActive] = useState("Home");
+
+  return (
+    <header>
+      <h1>Tech University</h1>
+      <nav>
+        {['Home', 'About', 'Courses', 'Contact'].map((item) => (
+          <button
+            key={item}
+            onClick={() => setActive(item)}
+            className={active === item ? "active" : ""}
+            style={{ background: 'none', color: 'blue', border: 'none', textDecoration: 'underline', cursor: 'pointer' }}  // Optional styling to make it look like a link
+          >
+            {item}
+          </button>
+        ))}
+      </nav>
+    </header>
+  );
+}
+
+export default Header;
+
+
+
+//Hero.js
+import React from "react";
+
+function Hero() {
+  return (
+    <section className="hero">
+      <h2>Welcome to Tech University</h2>
+      <p>Your gateway to a brighter future</p>
+      <button>Explore Courses</button>
+    </section>
+  );
+}
+
+export default Hero;
+
+
+//About.js
+import React from "react";
+
+function About() {
+  return (
+    <section className="about">
+      <h2>About Tech University</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <img src="placeholder.jpg" alt="About Tech University" />
+    </section>
+  );
+}
+
+export default About;
+
+//Courses.js
+import React, { useState } from "react";
+
+function Courses() {
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  const courses = [
+    { name: "Computer Science", description: "Learn programming and algorithms." },
+    { name: "Electrical Engineering", description: "Explore circuits and systems." },
+    { name: "Business Administration", description: "Understand management principles." }
+  ];
+
+  return (
+    <section className="courses">
+      <h2>Our Courses</h2>
+      {courses.map((course, index) => (
+        <div key={index} onClick={() => setSelectedCourse(course.name)}>
+          <h3>{course.name}</h3>
+          {selectedCourse === course.name && <p>{course.description}</p>}
+        </div>
+      ))}
+    </section>
+  );
+}
+
+export default Courses;
+
+
+//Contact.js
+import React, { useState } from "react";
+
+function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  return (
+    <section className="contact">
+      <h2>Contact Us</h2>
+      {submitted ? <p>Thank you for your message!</p> : (
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
+          <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+          <textarea name="message" placeholder="Message" onChange={handleChange} required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      )}
+    </section>
+  );
+}
+
+export default Contact;
+
+//Footer.js
+import React from "react";
+
+function Footer() {
+  return (
+    <footer>
+      <p>© 2025 Tech University. All rights reserved.</p>
+    </footer>
+  );
+}
+
+export default Footer;
+
+
+//index.js
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import './styles/main.css';
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+//styles/main.css
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #0073e6;
+    color: white;
+  }
+  
+  nav a {
+    margin: 0 10px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+  }
+  
+  nav .active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .hero, .about, .courses, .contact {
+    margin: 20px 0;
+  }
+  
+  button {
+    padding: 10px;
+    background: #0073e6;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  footer {
+    padding: 10px;
+    background: #0073e6;
+    color: white;
+  }
+
