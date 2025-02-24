@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>flexbox</title>
+        <style>
+            .parent{
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: flex-start;
+
+            }
+            .child{
+                height: 200px;
+                width: 200px;
+                border: 1px solid black;
+                color: white;
+                flex-basis: 2;
+            }
+            .c1{
+                background-color: red;
+                
+            }
+            .c2{
+                background-color: blue;
+              
+            }
+            .c3{
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <div class="child c1">1</div>
+            <div class="child c2">2</div>
+            <div class="child c3">3</div>
+
+        </div>
+    </body>
+</html>
+
+
+//24/02/2025
+
+flex-box 
+
+it is short form 
+
+display:flex;
+
+justify-content: flex-start, flex-end, space-evenly, space-between, space-around
+
+align-items: flex-start, flex-end, center, stretch
+
+gap- it defines the gap between the html elements 
+
+Ex: gap:20px;
+
+flex-direction: row, column, row-reverse, column-reverse
+
+order - it specifies the order of html elements
+
+flex-grow - it defines the expansion proportion of particular element by default is 0
+
+flex-shrink - it defines the collapsion/compression
+default value is 1
+
+flex-basis - it defines the initial size of the element
